@@ -10,7 +10,8 @@
   
   body {
     font-family: 'Inter', sans-serif;
-    background: #0a0a0a;
+    background: linear-gradient(135deg, #fefae0 0%, #faedcd 25%, #e9edc9 50%, #ccd5ae 75%, #d4a373 100%);
+    min-height: 100vh;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -21,11 +22,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg;
+    @apply bg-gradient-to-r from-sage-600 to-sage-700 hover:from-sage-700 hover:to-sage-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-transparent border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+    @apply bg-transparent border-2 border-sage-500 text-sage-700 hover:bg-sage-500 hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
   }
   
   .section-padding {
@@ -37,7 +38,11 @@
   }
 
   .glass-card {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl;
+    @apply bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-2xl;
+  }
+
+  .glass-card-dark {
+    @apply bg-sage-900/20 backdrop-blur-lg border border-sage-700/30 rounded-2xl shadow-2xl;
   }
 
   .shimmer {
@@ -66,20 +71,20 @@
 
   .scale-hover:hover {
     transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .glow-effect {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px rgba(204, 213, 174, 0.3);
     transition: box-shadow 0.3s ease;
   }
 
   .glow-effect:hover {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 40px rgba(204, 213, 174, 0.6);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, #ccd5ae, #d4a373);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -135,10 +140,10 @@
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 20px rgba(204, 213, 174, 0.4);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 40px rgba(204, 213, 174, 0.8);
   }
 }
 
@@ -148,16 +153,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #fefae0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(135deg, #ccd5ae, #d4a373);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+  background: linear-gradient(135deg, #b8c99a, #c8956a);
 }
 
 /* Intersection Observer animations */
@@ -229,7 +234,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1));
+  background: linear-gradient(135deg, rgba(204, 213, 174, 0.1), rgba(212, 163, 115, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: inherit;
@@ -241,7 +246,7 @@
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Text reveal animation */
@@ -274,7 +279,7 @@
 
 /* Gradient text animation */
 .gradient-text-animated {
-  background: linear-gradient(-45deg, #3b82f6, #1d4ed8, #7c3aed, #3b82f6);
+  background: linear-gradient(-45deg, #ccd5ae, #d4a373, #faedcd, #ccd5ae);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -310,4 +315,21 @@
 .ripple:active::after {
   width: 300px;
   height: 300px;
+}
+
+/* Dark theme overrides */
+.dark-theme {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #1f2937 50%, #374151 75%, #4b5563 100%);
+}
+
+.dark-theme .glass-card {
+  @apply bg-sage-900/20 backdrop-blur-lg border border-sage-700/30;
+}
+
+.dark-theme .text-sage-900 {
+  @apply text-sage-100;
+}
+
+.dark-theme .text-sage-700 {
+  @apply text-sage-300;
 }

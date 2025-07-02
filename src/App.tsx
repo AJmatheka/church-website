@@ -19,7 +19,7 @@ function App() {
   return (
     <AuthProvider>
       <DataProvider>
-        <div className="min-h-screen bg-black">
+        <div className="min-h-screen bg-gradient-to-br from-cream-50 via-sage-100 to-earth-100">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
